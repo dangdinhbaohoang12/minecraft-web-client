@@ -22,6 +22,10 @@ appViewer.resourcesManager.generateGuiTextures = async () => {
 }
 window.appViewer = appViewer
 
+interface EntityMovedMetadata {
+  [key: string]: unknown
+}
+
 appViewer.onWorldStart = () => {
   connectAppWorldViewToBot()
 
