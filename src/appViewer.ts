@@ -8,7 +8,7 @@ import {
   type MenuBackgroundOptions
 } from 'minecraft-renderer/src'
 import { generateGuiAtlas } from 'minecraft-renderer/src/lib/guiRenderer'
-import { BotEvents } from 'mineflayer'
+import { BotEvents, EntityMovedMetadata } from 'mineflayer'
 import { activeModalStack, miscUiState } from './globalState'
 import { options } from './optionsStorage'
 import { watchOptionsAfterWorldViewInit } from './watchOptions'
