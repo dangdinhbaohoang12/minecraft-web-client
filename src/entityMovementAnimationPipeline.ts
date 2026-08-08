@@ -49,6 +49,7 @@ export function getIsCrouched (
   return isLocalPlayer ? isLocalPlayerSneaking : Boolean(entity.crouching)
 }
 
+// eslint-disable-next-line unicorn/prefer-native-coercion-functions -- kept as a named export for call-site clarity and cross-module reuse
 export function resolveCacheKey (rendererEntityId: RendererEntityId): string {
   return String(rendererEntityId)
 }
@@ -63,10 +64,7 @@ export function shouldProcessRemoteTrackingEntry (params: {
   localPlayerEntity: EntityLike | null | undefined
 }): boolean {
   const { tracking, entity, localPlayerEntity } = params
-  if (!tracking) return false
-  if (!entity) return false
-  if (entity === localPlayerEntity) return false
-  return true
+  return tracking && Boolean(entity) && entity !== localPlayerEntity
 }
 
 export type ApplyEntityMovementAnimationParams = {
