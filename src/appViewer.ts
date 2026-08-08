@@ -22,10 +22,6 @@ appViewer.resourcesManager.generateGuiTextures = async () => {
 }
 window.appViewer = appViewer
 
-interface EntityMovedMetadata {
-  [key: string]: unknown
-}
-
 appViewer.onWorldStart = () => {
   connectAppWorldViewToBot()
 
@@ -176,7 +172,7 @@ const connectAppWorldViewToBot = () => {
     entityEquip (e: any) {
       emitEntity(e)
     },
-    entityMoved (e: any, eventMetadata: Record<string, unknown> = {}) {
+    entityMoved (e: any, eventMetadata: EntityMovedMetadata = {} as EntityMovedMetadata) {
       emitEntity(e, 'entityMoved', eventMetadata)
     },
     entityAttach (_passenger: any, vehicle: any) {
